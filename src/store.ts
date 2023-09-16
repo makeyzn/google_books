@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import asyncBooksReducer from "./features/asyncBooksSlice";
+import asyncAllBooksSlice from "./features/asyncAllBooksSlice";
+import asyncBookSlice from "./features/asyncBookSlice";
 
 const rootReducer = combineReducers({
-  books: asyncBooksReducer,
+  books: asyncAllBooksSlice,
+  book: asyncBookSlice,
 });
 
 export const store = configureStore({

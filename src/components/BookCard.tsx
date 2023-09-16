@@ -1,8 +1,27 @@
+import { MouseEventHandler } from "react";
 import Card from "react-bootstrap/Card";
 
-const BookCard = ({ title, categories, image, authors }) => {
+export interface CardProperties {
+  title: string;
+  categories: string[];
+  image: string;
+  authors: string[];
+  onClick?: MouseEventHandler<HTMLElement>;
+}
+
+const BookCard = ({
+  title,
+  categories,
+  image,
+  authors,
+  onClick,
+}: CardProperties) => {
   return (
-    <Card style={{ width: "15rem" }} className="h-100 p-3 bg-light">
+    <Card
+      style={{ width: "15rem" }}
+      className="h-100 p-3 bg-light"
+      onClick={onClick}
+    >
       <div className="d-flex justify-content-center align-items-center">
         <Card.Img variant="top" src={image} style={{ width: "10rem" }} />
       </div>

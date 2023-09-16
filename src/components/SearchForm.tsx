@@ -1,16 +1,24 @@
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import { useAppDispatch } from "../redux-hooks";
 import { fetchAllBooks } from "../features/booksAsyncActions";
+import { useNavigate } from "react-router-dom";
+
+export interface DataSearch {
+  search: string;
+  sorting: string;
+  category: string;
+}
 
 const SearchForm = () => {
   const { register, handleSubmit } = useForm();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    // alert(JSON.stringify(data));
+  const onSubmit = (data: FieldValues) => {
     dispatch(fetchAllBooks(data));
+    navigate("/");
   };
   return (
     <>
