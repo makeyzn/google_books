@@ -13,13 +13,13 @@ export interface Book {
   };
 }
 
-interface BooksState {
-  totalItems: string;
+export interface BooksState {
+  totalItems: number;
   items: Book[];
 }
 
 const initialState: BooksState = {
-  totalItems: "",
+  totalItems: 0,
   items: [],
 };
 
