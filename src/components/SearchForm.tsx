@@ -27,7 +27,7 @@ const SearchForm = () => {
         style={{ maxWidth: 580 }}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className="mb-4">Search for books</h1>
+        <h1 className="mb-4 text-light">Search for books</h1>
         <Form.Group className="mb-4 col-md-8 d-flex" controlId="formBasicEmail">
           <Form.Control
             type="text"
@@ -35,11 +35,13 @@ const SearchForm = () => {
             className="mx-3"
             {...register("search")}
           />
-          <Button type="submit" className="btn-light">Submit</Button>
+          <Button type="submit" className="btn-light">
+            Submit
+          </Button>
         </Form.Group>
         <div className="row">
           <Form.Group className="row col align-items-center">
-            <Form.Label className="col">Categories</Form.Label>
+            <Form.Label className="col h6 text-light">Categories</Form.Label>
             <Form.Select className="col" {...register("category")}>
               <option value="">all</option>
               <option value="art">art</option>
@@ -51,7 +53,7 @@ const SearchForm = () => {
             </Form.Select>
           </Form.Group>
           <Form.Group className="row col align-items-center">
-            <Form.Label className="col">Sorting by</Form.Label>
+            <Form.Label className="col h6 text-light">Sorting by</Form.Label>
             <Form.Select className="col" {...register("sorting")}>
               <option value="newest">newest</option>
               <option value="relevance">relevance</option>
