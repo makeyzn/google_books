@@ -32,7 +32,7 @@ const asyncBookSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(
       fetchBook.fulfilled,
-      (state, action: PayloadAction<BookPage>) => {
+      (_, action: PayloadAction<BookPage>) => {
         return action.payload;
       }
     );

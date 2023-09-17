@@ -31,7 +31,7 @@ const asyncAllBooksSlice = createSlice({
     builder
       .addCase(
         fetchAllBooks.fulfilled,
-        (state, action: PayloadAction<BooksState>) => {
+        (_, action: PayloadAction<BooksState>) => {
           return action.payload;
         }
       )
