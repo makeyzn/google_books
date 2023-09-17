@@ -9,11 +9,11 @@ const AsyncBookPage = () => {
   return (
     <Container>
       <BookPage
-        image={book.volumeInfo.imageLinks.large}
-        categories={book.volumeInfo.categories}
-        title={book.volumeInfo.title}
-        authors={book.volumeInfo.authors}
-        description={book.volumeInfo.description}
+        image={book.volumeInfo?.imageLinks?.medium}
+        categories={book.volumeInfo?.categories}
+        title={book.volumeInfo?.title}
+        authors={book.volumeInfo?.authors}
+        description={book.volumeInfo?.description}
       />
     </Container>
   );

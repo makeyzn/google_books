@@ -8,7 +8,7 @@ export interface BookPage {
     categories: string[];
     description: string;
     imageLinks: {
-      large: string;
+      medium: string;
     };
   };
 }
@@ -20,7 +20,7 @@ const initialState: BookPage = {
     categories: [""],
     description: "",
     imageLinks: {
-      large: "",
+      medium: "",
     },
   },
 };

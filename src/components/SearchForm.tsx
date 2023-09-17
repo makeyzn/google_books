@@ -23,17 +23,19 @@ const SearchForm = () => {
   return (
     <>
       <Form
-        className="container-sm text-center d-flex flex-column align-items-center"
+        className="container-sm text-center d-flex flex-column align-items-center pb-4"
         style={{ maxWidth: 580 }}
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className="mb-4">Search for books</h1>
-        <Form.Group className="mb-4 col-md-8" controlId="formBasicEmail">
+        <Form.Group className="mb-4 col-md-8 d-flex" controlId="formBasicEmail">
           <Form.Control
             type="text"
             placeholder="Search"
+            className="mx-3"
             {...register("search")}
           />
+          <Button type="submit" className="btn-light">Submit</Button>
         </Form.Group>
         <div className="row">
           <Form.Group className="row col align-items-center">
@@ -56,7 +58,6 @@ const SearchForm = () => {
             </Form.Select>
           </Form.Group>
         </div>
-        <Button type="submit">Submit form</Button>
       </Form>
     </>
   );
