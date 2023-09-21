@@ -15,7 +15,7 @@ export const fetchAllBooks = createAsyncThunk(
   }
 );
 
-export const fetchBook = createAsyncThunk("books/fetchBook", async (id) => {
+export const fetchBook = createAsyncThunk("books/fetchBook", async (id: string) => {
   const response = await axios.get(
     `https://www.googleapis.com/books/v1/volumes/${id}?key=` + API_KEY
   );

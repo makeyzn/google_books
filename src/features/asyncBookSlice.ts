@@ -11,6 +11,7 @@ export interface BookPage {
       medium: string;
     };
   };
+  isLoading: boolean;
 }
 
 const initialState: BookPage = {
@@ -23,6 +24,7 @@ const initialState: BookPage = {
       medium: "",
     },
   },
+  isLoading: false,
 };
 
 const asyncBookSlice = createSlice({
@@ -30,12 +32,17 @@ const asyncBookSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(
-      fetchBook.fulfilled,
-      (_, action: PayloadAction<BookPage>) => {
-        return action.payload;
-      }
-    );
+    builder
+      .addCase(fetchBook.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        fetchBook.fulfilled,
+        (state, action: PayloadAction<BookPage>) => {
+          state.isLoading = false;
+          state.volumeInfo = action.payload.volumeInfo;
+        }
+      );
   },
 });
 

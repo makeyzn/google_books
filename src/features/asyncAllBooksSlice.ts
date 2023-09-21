@@ -16,11 +16,13 @@ export interface Book {
 export interface BooksState {
   totalItems: number;
   items: Book[];
+  isLoading: boolean;
 }
 
 const initialState: BooksState = {
   totalItems: 0,
   items: [],
+  isLoading: false,
 };
 
 const asyncAllBooksSlice = createSlice({
@@ -29,12 +31,17 @@ const asyncAllBooksSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(fetchAllBooks.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(
         fetchAllBooks.fulfilled,
-        (_, action: PayloadAction<BooksState>) => {
-          return action.payload;
+        (state, action: PayloadAction<BooksState>) => {
+          state.isLoading = false;
+          state.totalItems = action.payload.totalItems;
+          state.items = action.payload.items;
         }
-      )
+      );
   },
 });
 
