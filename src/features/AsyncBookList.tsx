@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectAsyncBooks } from "./asyncBooksSelectors";
 import { useAppDispatch } from "../redux-hooks";
-import { useEffect } from "react";
-import { fetchAllBooks, fetchBook } from "./booksAsyncActions";
+import { fetchBook } from "./booksAsyncActions";
 import BookCard from "../components/BookCard";
 import { Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -13,12 +12,6 @@ const AsyncBookList = () => {
   const books = useSelector(selectAsyncBooks);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    dispatch(
-      fetchAllBooks({ search: "react", sorting: "newest", category: "" })
-    );
-  }, []);
 
   const openBook = (id: string) => {
     dispatch(fetchBook(id));
